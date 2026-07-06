@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "swarm-agent"
+version = "0.1.0"
+description = "群智能体 - 一个由 Mother Agent 驱动的动态智能体创建框架"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+keywords = ["llm", "agent", "swarm", "multi-agent", "mother-agent"]
+authors = [{name = "群智能体 Contributors"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+openai = ["openai>=1.0"]
+all = ["swarm-agent[openai]"]
+dev = ["pytest>=7", "pytest-asyncio>=0.23"]
+
+[tool.setuptools.packages.find]
+include = ["swarm_agent*"]
